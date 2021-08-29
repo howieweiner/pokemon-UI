@@ -1,0 +1,17 @@
+# get all ids for numbers 1-151
+POST http://localhost:5000
+Content-Type: application/json
+
+{
+  "query": "query { pokemons(first: 151) { id, number} }"
+}
+
+###
+
+# get details for id
+POST http://localhost:5000
+Content-Type: application/json
+
+{
+"query": "query { pokemon(id: \"UG9rZW1vbjowMDE=\") { number, name, image, resistant, weaknesses, attacks { fast { name, type, damage }, special { name, type, damage } } } }"
+}
