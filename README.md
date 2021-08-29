@@ -41,3 +41,9 @@ npm run dev
 
 The Pokemon UI web app will then be available at [http://localhost:3000](http://localhost:3000)
 
+## Running Tests
+To run the unit tests, type:
+
+```
+npm run test
+```

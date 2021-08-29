@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import Hello from '../components/Hello'
+import PokemonCard from '../components/PokemonCard'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
 
@@ -12,7 +12,7 @@ export default function Index(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <Hello />
+        <PokemonCard />
       </Container>
     </Layout>
   )

@@ -4,8 +4,6 @@ type ContainerProps = {
   children: React.ReactNode
 }
 
-export default function Container({children}: ContainerProps): JSX.Element {
-  return (
-    <div className="container mx-auto px-5">{children}</div>
-  )
+export default function Container({ children }: ContainerProps): JSX.Element {
+  return <div className="container mx-auto px-4">{children}</div>
 }

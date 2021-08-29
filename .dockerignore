@@ -1,10 +1,12 @@
 .husky
 .next
 api-server
+config
 gitrepo
 node_modules
 scripts
 test-clients
+.babelrc
 .gitignore
 .editorconfig
 .eslintignore
@@ -15,5 +17,7 @@ test-clients
 .prettierrc
 docker-compose.yml
 Dockerfile
+jest.config.js
+jest.setup.js
 lint-staged.config.js
 *.md
