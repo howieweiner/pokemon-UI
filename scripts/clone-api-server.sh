@@ -8,6 +8,3 @@ else
     mkdir gitrepo
     git clone git@github.com:lucasbento/graphql-pokemon.git ./gitrepo
 fi
-
-echo "Building Docker containers.."
-docker-compose build

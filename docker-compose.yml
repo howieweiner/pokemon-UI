@@ -1,8 +1,15 @@
 version: "3.9"  # optional since v1.27.0
 services:
-  api-server:
+  api:
+    image: pokemon-api
     build:
       context: ./gitrepo
       dockerfile: ../api-server/Dockerfile
     ports:
       - "5000:5000"
+
+  web:
+    image: pokemon-ui
+    build: .
+    ports:
+      - "3000:3000"
