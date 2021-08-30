@@ -35,6 +35,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     return { notFound: true }
   }
 
+  const idNumber = parseInt(id)
+  if (idNumber < 1 || idNumber > 151 || isNaN(idNumber)) {
+    return { notFound: true }
+  }
+
   return {
     props: { id },
   }
