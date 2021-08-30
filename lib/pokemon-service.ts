@@ -1,12 +1,10 @@
 import getConfig from 'next/config'
 import { Attack, Pokemon, PokemonApiResponse, PokemonId } from '../types/pokemon'
 
-// TODO: unit tests
 const POKEMON_IDS_QUERY = {
   query: 'query { pokemons(first: 151) { id, number} }',
 }
 
-// TODO: unit test
 const pokemonQueryBuilder = (pokemonId: string) => {
   return {
     query: `query { pokemon(id: "${pokemonId}") { number, name, image, resistant, weaknesses, attacks { fast { name, type, damage }, special { name, type, damage } } } }`,

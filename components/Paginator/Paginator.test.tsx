@@ -5,6 +5,8 @@ import { CardViewerAction } from '../../state/cardviewer-actions'
 import { buildInitialState, CardViewerState } from '../../state/store'
 import { fireEvent } from '@testing-library/react'
 
+jest.mock('../../lib/pokemon-service')
+
 describe('<Paginator /> component', () => {
   let mockState: CardViewerState, mockDispatch: React.Dispatch<CardViewerAction>
 
@@ -33,6 +35,7 @@ describe('<Paginator /> component', () => {
       dispatch: mockDispatch,
       state: mockState,
     }
+
     const { getByText } = renderWithProviders(<Paginator />, { providerProps })
 
     const previousButton = getByText('Next')

@@ -1,7 +1,5 @@
 import '@testing-library/jest-dom'
-import { fetch } from 'whatwg-fetch'
-
-global.fetch = fetch
+import fetchMock from 'jest-fetch-mock'
 
 const testConfig = {
   publicRuntimeConfig: {
@@ -11,3 +9,5 @@ const testConfig = {
 }
 
 jest.mock('next/config', () => (): any => testConfig)
+
+fetchMock.enableMocks()
