@@ -23,7 +23,7 @@ describe('pokemon service', () => {
         resistant: [],
         weaknesses: [],
       }
-      fetch.mockResponseOnce(JSON.stringify({ data: { pokemon: mockResponse } }))
+      fetch.mockResponseOnce(JSON.stringify({ data: { query: { pokemon: mockResponse } } }))
 
       // when
       const pokemon = await getPokemonById('abc123')

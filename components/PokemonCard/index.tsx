@@ -29,6 +29,7 @@ const PokemonCard: React.FC<Props> = ({ pokemonNumber }) => {
   useEffect(() => {
     if (!appIsInitialised || appIsLoading || appHasErrored) {
       setIsHidden(true)
+      return
     } else {
       setIsHidden(false)
     }
