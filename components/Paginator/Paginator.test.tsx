@@ -7,6 +7,14 @@ import { fireEvent } from '@testing-library/react'
 
 jest.mock('../../lib/pokemon-service')
 
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      push: () => null,
+    }
+  },
+}))
+
 describe('<Paginator /> component', () => {
   let mockState: CardViewerState, mockDispatch: React.Dispatch<CardViewerAction>
 

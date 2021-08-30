@@ -22,9 +22,9 @@ const Button: React.FC<Props> = ({ label, disabled, onSelect }) => {
   }
 
   return (
-    <a href="#" className={styles} onClick={onSelected} onKeyPress={onSelected} data-testid="paginator-button">
+    <button className={styles} onClick={onSelected} onKeyPress={onSelected} data-testid="paginator-button">
       {label}
-    </a>
+    </button>
   )
 }
 

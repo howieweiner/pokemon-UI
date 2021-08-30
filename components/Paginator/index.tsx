@@ -11,9 +11,11 @@ import {
   hasPrevious,
   isInitialised,
 } from '../../state/cardviewer-selectors'
+import { useRouter } from 'next/router'
 
 export default function Paginator(): JSX.Element {
   const [pokemonNumber, setPokemonNumber] = useState<string>('')
+  const router = useRouter()
   const { state, dispatch } = useCardViewer()
   const { fetchPokemon } = dispatch
 
@@ -42,6 +44,10 @@ export default function Paginator(): JSX.Element {
         const pokemonId = getPokemonIdForNumber(state, pokemonNumber)
         if (pokemonId) {
           fetchPokemon(pokemonId)
+          router.push({
+            pathname: '/[id]',
+            query: { id: pokemonNumber },
+          })
         }
       }
     }
@@ -54,13 +60,17 @@ export default function Paginator(): JSX.Element {
         const pokemonId = getPokemonIdForNumber(state, pokemonNumber)
         if (pokemonId) {
           fetchPokemon(pokemonId)
+          router.push({
+            pathname: '/[id]',
+            query: { id: pokemonNumber },
+          })
         }
       }
     }
   }
 
   return (
-    <div className="flex max-w-sm mx-auto mt-4">
+    <div className="flex max-w-sm mx-auto mt-4 justify-center">
       <Button label="Previous" disabled={!appHasPrevious} onSelect={onSelectPrevious} />
       <div className="inline-block flex items-center justify-center px-2 py-2 mx-1 text-sm text-center w-20 font-semibold">
         {pokemonNumber}

@@ -2,24 +2,22 @@
 
 exports[`<Button /> component renders the button as disabled 1`] = `
 <div>
-  <a
+  <button
     class="flex items-center justify-center px-2 py-2 mx-1 text-sm text-center w-20 rounded-md bg-white text-gray-400 cursor-not-allowed dark:bg-gray-800 dark:text-gray-600"
     data-testid="paginator-button"
-    href="#"
   >
     Press Me!
-  </a>
+  </button>
 </div>
 `;
 
 exports[`<Button /> component renders the button as enabled 1`] = `
 <div>
-  <a
+  <button
     class="flex items-center justify-center px-2 py-2 mx-1 text-sm text-center w-20 rounded-md bg-white text-gray-700 transition-colors duration-200 transform dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-600 dark:hover:bg-gray-500 hover:text-white dark:hover:text-gray-200"
     data-testid="paginator-button"
-    href="#"
   >
     Press Me!
-  </a>
+  </button>
 </div>
 `;
