@@ -2,7 +2,7 @@ import React from 'react'
 import Button from './Button'
 import { fireEvent, render } from '@testing-library/react'
 
-describe('<Button />', () => {
+describe('<Button /> component', () => {
   it('displays the label text', async () => {
     const { findByText } = render(<Button label="Press Me!" disabled={true} onSelect={jest.fn()} />)
     await findByText('Press Me!')

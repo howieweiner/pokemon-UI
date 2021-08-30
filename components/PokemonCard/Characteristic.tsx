@@ -2,10 +2,14 @@ import React from 'react'
 
 type Props = {
   heading: string
-  items: string[]
+  items: string[] | undefined
 }
 
 const Characteristic: React.FC<Props> = ({ heading, items }) => {
+  if (!items) {
+    return null
+  }
+
   const itemList = items.join(', ')
 
   return (

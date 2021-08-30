@@ -3,6 +3,8 @@ import Head from 'next/head'
 import PokemonCard from '../components/PokemonCard'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
+import ErrorMessage from '../components/ErrorMessage'
+import Initialiser from '../components/Initialiser'
 
 export default function Index(): JSX.Element {
   return (
@@ -12,7 +14,9 @@ export default function Index(): JSX.Element {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <PokemonCard />
+        <Initialiser />
+        <ErrorMessage />
+        <PokemonCard pokemonNumber="001" />
       </Container>
     </Layout>
   )
