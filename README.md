@@ -26,6 +26,8 @@ To run both the API server and the Pokemon UI web server in production mode, ens
 
 The Pokemon UI web app will then be available at [http://localhost:3000](http://localhost:3000)
 
+The web app supports pokemon ids in the URL e.g. [http://localhost:3000/150](http://localhost:3000/150)
+
 ## Running the servers for Development
 When developing, the API server can be run standalone with:
 
@@ -47,3 +49,6 @@ To run the unit tests, type:
 ```
 npm run test
 ```
+
+## Further Documentation
+[Software Architecture](./docs/software-architecture.md)

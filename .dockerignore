@@ -1,6 +1,7 @@
 .husky
 .next
 api-server
+docs
 gitrepo
 node_modules
 scripts
