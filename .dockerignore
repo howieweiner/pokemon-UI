@@ -1,13 +1,12 @@
 .husky
 .next
 api-server
-config
 gitrepo
 node_modules
 scripts
+test
 test-clients
 .babelrc
-.gitignore
 .editorconfig
 .eslintignore
 .eslintrc

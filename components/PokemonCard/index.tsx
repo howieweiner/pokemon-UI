@@ -15,15 +15,19 @@ type Props = {
   pokemonNumber: string
 }
 
-// TODO: unit tests
 const PokemonCard: React.FC<Props> = ({ pokemonNumber }) => {
   const [isHidden, setIsHidden] = useState<boolean>(false)
   const [pokemon, setPokemon] = useState<Pokemon | undefined>()
   const { state, dispatch } = useCardViewer()
 
+  const appIsInitialised = isInitialised(state)
+  const appHasPokemon = hasPokemon(state)
+  const appHasErrored = hasErrored(state)
+  const appIsLoading = isLoading(state)
+  const currentPokemon = getPokemon(state)
+
   useEffect(() => {
-    console.log('Ziggy')
-    if (!isInitialised(state) || isLoading(state) || hasErrored(state)) {
+    if (!appIsInitialised || appIsLoading || appHasErrored) {
       setIsHidden(true)
     } else {
       setIsHidden(false)
@@ -31,8 +35,8 @@ const PokemonCard: React.FC<Props> = ({ pokemonNumber }) => {
 
     // if we have initialised data but do not yet have a pokemon, fetch the
     // first one
-    if (isInitialised(state)) {
-      if (!hasPokemon(state)) {
+    if (appIsInitialised) {
+      if (!appHasPokemon) {
         const pokemonId = getPokemonIdForNumber(state, pokemonNumber)
         if (pokemonId) {
           const { fetchPokemon } = dispatch
@@ -40,14 +44,14 @@ const PokemonCard: React.FC<Props> = ({ pokemonNumber }) => {
         }
       }
 
-      if (hasPokemon(state)) {
+      if (appHasPokemon) {
         const po = getPokemon(state)
         if (po) {
           setPokemon(po)
         }
       }
     }
-  }, [isInitialised(state), hasPokemon(state), getPokemon(state), hasErrored(state), pokemonNumber])
+  }, [appIsInitialised, appHasPokemon, currentPokemon, appHasErrored, pokemonNumber])
 
   if (isHidden) {
     return null
