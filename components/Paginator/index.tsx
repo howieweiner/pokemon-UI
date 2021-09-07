@@ -19,13 +19,6 @@ export default function Paginator(): JSX.Element {
   const { state, dispatch } = useCardViewer()
   const { fetchPokemon } = dispatch
 
-  const appIsInitialised = isInitialised(state)
-  const appHasPokemon = hasPokemon(state)
-  const currentPokemon = getPokemon(state)
-
-  const appHasPrevious = hasPrevious(state)
-  const appHasNext = hasNext(state)
-
   useEffect(() => {
     if (isInitialised(state)) {
       if (hasPokemon(state)) {
@@ -35,10 +28,10 @@ export default function Paginator(): JSX.Element {
         }
       }
     }
-  }, [appIsInitialised, appHasPokemon, currentPokemon, pokemonNumber])
+  }, [state, pokemonNumber])
 
   const onSelectPrevious = () => {
-    if (appHasPrevious) {
+    if (hasPrevious(state)) {
       const pokemonNumber = getPreviousNumber(state)
       if (pokemonNumber) {
         const pokemonId = getPokemonIdForNumber(state, pokemonNumber)
@@ -54,7 +47,7 @@ export default function Paginator(): JSX.Element {
   }
 
   const onSelectNext = () => {
-    if (appHasNext) {
+    if (hasNext(state)) {
       const pokemonNumber = getNextNumber(state)
       if (pokemonNumber) {
         const pokemonId = getPokemonIdForNumber(state, pokemonNumber)
@@ -71,11 +64,11 @@ export default function Paginator(): JSX.Element {
 
   return (
     <div className="flex max-w-sm mx-auto mt-4 justify-center">
-      <Button label="Previous" disabled={!appHasPrevious} onSelect={onSelectPrevious} />
+      <Button label="Previous" disabled={!hasPrevious(state)} onSelect={onSelectPrevious} />
       <div className="inline-block flex items-center justify-center px-2 py-2 mx-1 text-sm text-center w-20 font-semibold">
         {pokemonNumber}
       </div>
-      <Button label="Next" disabled={!appHasNext} onSelect={onSelectNext} />
+      <Button label="Next" disabled={!hasNext(state)} onSelect={onSelectNext} />
     </div>
   )
 }

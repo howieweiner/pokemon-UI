@@ -20,13 +20,12 @@ const PokemonCard: React.FC<Props> = ({ pokemonNumber }) => {
   const [pokemon, setPokemon] = useState<Pokemon | undefined>()
   const { state, dispatch } = useCardViewer()
 
-  const appIsInitialised = isInitialised(state)
-  const appHasPokemon = hasPokemon(state)
-  const appHasErrored = hasErrored(state)
-  const appIsLoading = isLoading(state)
-  const currentPokemon = getPokemon(state)
-
   useEffect(() => {
+    const appIsInitialised = isInitialised(state)
+    const appHasPokemon = hasPokemon(state)
+    const appHasErrored = hasErrored(state)
+    const appIsLoading = isLoading(state)
+
     if (!appIsInitialised || appIsLoading || appHasErrored) {
       setIsHidden(true)
       return
@@ -52,7 +51,7 @@ const PokemonCard: React.FC<Props> = ({ pokemonNumber }) => {
         }
       }
     }
-  }, [appIsInitialised, appHasPokemon, currentPokemon, appHasErrored, pokemonNumber])
+  }, [state, dispatch, pokemonNumber])
 
   if (isHidden) {
     return null
